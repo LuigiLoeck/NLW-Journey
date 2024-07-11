@@ -1,14 +1,15 @@
-import { AtSign, Plus, User, X } from "lucide-react";
-import { FormEvent } from "react";
+import { AtSign, Plus, User, X } from 'lucide-react'
+import { FormEvent } from 'react'
+import { Button } from '../../components/button'
 
 interface ConfirmTripModalProps {
-  handleConfirmModal: () => void;
-  createTrip: (event: FormEvent<HTMLFormElement>) => void;
+  handleConfirmModal: () => void
+  createTrip: (event: FormEvent<HTMLFormElement>) => void
 }
 
 export function ConfirmTripModal({
   handleConfirmModal,
-  createTrip,
+  createTrip
 }: ConfirmTripModalProps) {
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
@@ -20,14 +21,14 @@ export function ConfirmTripModal({
           </button>
         </div>
         <p className="text-sm text-zinc-400 mt-2">
-          Para concluir a criação da viagem para{" "}
+          Para concluir a criação da viagem para{' '}
           <span className="font-semibold text-zinc-100">
             Florianópolis, Brasil
-          </span>{" "}
-          nas datas de{" "}
+          </span>{' '}
+          nas datas de{' '}
           <span className="font-semibold text-zinc-100">
             16 a 27 de Agosto de 2024
-          </span>{" "}
+          </span>{' '}
           preencha seus dados abaixo:
         </p>
         <form onSubmit={createTrip} className="space-y-3">
@@ -48,15 +49,12 @@ export function ConfirmTripModal({
               className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
             />
           </div>
-          <button
-            type="submit"
-            className="bg-lime-300 w-full justify-center text-lime-950 rounded-lg px-5 h-11 font-medium hover:bg-lime-400 flex items-center gap-2"
-          >
+
+          <Button type="submit" colors="primary" size="full">
             Confirmar criação da viagem
-            <Plus className="size-5" />
-          </button>
+          </Button>
         </form>
       </div>
     </div>
-  );
+  )
 }

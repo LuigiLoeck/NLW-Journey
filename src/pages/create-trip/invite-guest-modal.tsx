@@ -1,18 +1,19 @@
-import { AtSign, Plus, X } from "lucide-react";
-import { FormEvent } from "react";
+import { AtSign, Plus, X } from 'lucide-react'
+import { FormEvent } from 'react'
+import { Button } from '../../components/button'
 
 interface InviteGuestsModalProps {
-  handleGuestsModal: () => void;
-  guests: string[];
-  handleAddGuests: (event: FormEvent<HTMLFormElement>) => void;
-  handleRemoveGuest: (email: string) => void;
+  handleGuestsModal: () => void
+  guests: string[]
+  handleAddGuests: (event: FormEvent<HTMLFormElement>) => void
+  handleRemoveGuest: (email: string) => void
 }
 
 export function InviteGuestsModal({
   handleGuestsModal,
   guests,
   handleAddGuests,
-  handleRemoveGuest,
+  handleRemoveGuest
 }: InviteGuestsModalProps) {
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center">
@@ -28,7 +29,7 @@ export function InviteGuestsModal({
           viagem.
         </p>
         <div className="flex flex-wrap gap-2">
-          {guests.map((guest) => {
+          {guests.map(guest => {
             return (
               <div
                 key={guest}
@@ -39,7 +40,7 @@ export function InviteGuestsModal({
                   <X className="size-4 text-zinc-400" />
                 </button>
               </div>
-            );
+            )
           })}
         </div>
         <div className="w-full h-px bg-zinc-800"></div>
@@ -56,15 +57,13 @@ export function InviteGuestsModal({
               className="bg-transparent text-lg placeholder-zinc-400 outline-none flex-1"
             />
           </div>
-          <button
-            type="submit"
-            className="bg-lime-300 text-lime-950 rounded-lg px-5 py-2 font-medium hover:bg-lime-400 flex items-center gap-2"
-          >
+
+          <Button type="submit" colors="primary">
             Convidar
             <Plus className="size-5" />
-          </button>
+          </Button>
         </form>
       </div>
     </div>
-  );
+  )
 }
